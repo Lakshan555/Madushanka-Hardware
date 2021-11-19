@@ -1,0 +1,51 @@
+.sidenav{
+    background-image: linear-gradient(to top, #000047, #01054e, #050955, #0a0d5d, #101064);
+    background-attachment: fixed;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;    
+}
+
+.item{
+    padding-bottom: 10px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+
+.bg-color{
+    background-image: linear-gradient(to left, #000047, #01054e, #050955, #0a0d5d, #101064);
+    height: 80px;
+}
+
+.navbar-collapse{
+    margin-left: 5%;
+}
+
+.brand{
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    margin-left: 10%;
+    font-weight: 650;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.shape input{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.shape span{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.toggleNav{
+    margin-top: 80px;
+}

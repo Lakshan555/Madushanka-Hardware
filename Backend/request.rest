@@ -1,0 +1,34 @@
+GET http://localhost:8000/supplier
+
+
+###
+POST http://localhost:8000/supplier/add
+content-Type: application/json
+
+{
+  "supplierNo":"S0001",
+  "name":"Lalith",
+  "email":"lalith@gmail.com",
+  "phoneNo":"076544745",
+  "address":"jaffana",
+  "itemName":"ss",
+  "price": "555",
+  "regDate":"2020"
+
+}
+
+
+###
+PUT   http://localhost:8000/supplier/update/619774d11fd31c4343deff19
+content-Type: application/json
+
+{
+    "supplierNo":"S0001",
+  "name":"Lalitha",
+  "email":"lalith@gmail.com",
+  "phoneNo":"076544745",
+  "address":"jaffana",
+  "itemName":"ss",
+  "price": "555",
+  "regDate":"2020"
+}
