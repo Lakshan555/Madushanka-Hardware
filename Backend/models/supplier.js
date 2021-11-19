@@ -6,23 +6,23 @@ const supplierSchema = new mongoose.Schema({
 
     supplierNo:{
         type:String,
-        
+        required: true
     },
     name:{
         type:String,
-       
+        required: true
     },
     email:{
         type:String,
-       
+        required: true
     },
     phoneNo:{
         type: Number,
-        
+        required: true
     },
     address:{
         type:String,
-       
+        required: true
         
     },
     itemName:{
@@ -31,7 +31,7 @@ const supplierSchema = new mongoose.Schema({
     },
     price:{
         type:Number,
-       
+        
     },
     regDate:{
         type: Date,

@@ -24,8 +24,7 @@ export default class AddSupplier extends Component {
             phoneNo: Number,
             email: "",
             regDate: new Date(),
-            itemName: [],
-            price: [],
+          
 
 
             formErrors: {
@@ -89,7 +88,7 @@ export default class AddSupplier extends Component {
         if (formValid(this.state.formErrors)) {
 
 
-            const { supplierNo, name, address, phoneNo, email, itemName, price, regDate } = this.state;
+            const { supplierNo, name, address, phoneNo, email, regDate } = this.state;
 
             const data = {
                 supplierNo: supplierNo,
@@ -98,12 +97,11 @@ export default class AddSupplier extends Component {
                 phoneNo: phoneNo,
                 email: email,
                 regDate: regDate,
-                itemName: itemName,
-                price: price,
+                
 
             }
             console.log(data)
-            axios.post("http://localhost:4000/supplier/add", data).then((res) => {
+            axios.post("http://localhost:8000/supplier/add", data).then((res) => {
                 if (res.data.success) {
                     toast(`New Supplier Added`, {
                         type: toast.TYPE.SUCCESS,
@@ -116,8 +114,6 @@ export default class AddSupplier extends Component {
                             address: "",
                             phoneNo: Number,
                             email: "",
-                            itemName: [],
-                            price: [],
                             regDate: ""
 
                         }
@@ -134,46 +130,7 @@ export default class AddSupplier extends Component {
         }
     };
 
-    //array
-    addItem() {
-        this.setState({ itemName: [...this.state.itemName, ' '] })
-        this.setState({ price: [...this.state.price, ' '] })
-
-
-    }
-
-    handleChange(e, index) {
-        this.state.itemName[index] = e.target.value
-        const { name, value } = e.target;
-        this.setState({
-            ...this.state,
-            [name]: value
-        });
-    }
     
-    handleChange2(e, index) {
-        this.state.price[index] = e.target.value
-        const { name, value } = e.target;
-        this.setState({
-            ...this.state,
-            [name]: value
-        });
-
-
-
-
-    }
-
-    handleRemove(index) {
-        this.state.itemName.splice(index, 1)
-
-        this.state.price.splice(index, 1)
-
-        console.log(this.state.itemName, "$$$$");
-
-        this.setState({ itemName: this.state.itemName })
-
-    }
 
     render() {
         const { formErrors } = this.state;
@@ -249,36 +206,9 @@ export default class AddSupplier extends Component {
                                         </div>
                                         <div className='form-group col-md-1' style={{ marginTop: '15px' }}/>
                                     </div>        
-                                    <div className='row'>
-                                        <div className='form-group col-md-1' style={{ marginTop: '15px' }}/>
-                                        <div className='form-group col-md-10' style={{ marginTop: '15px' }}>
-                                            <label htmlFor='RequisitionID'> Suplier Item : </label>
-                                            <button className="btn btn-success addItem" onClick={(e) => this.addItem(e)}><i class="fas fa-list-alt"></i>&nbsp;&nbsp;Add Item</button>
-                                        </div>
-                                        <div className='form-group col-md-1' style={{ marginTop: '15px' }}/>
-                                    </div>      
+                                     
 
-                                    {this.state.itemName.map((item, index) => {
-                                        return(
-                                            <div className="row">
-                                                <div className='form-group col-md-1' style={{ marginTop: '15px' }}/>
-                                                <div className='form-group col-md-5' style={{ marginTop: '15px' }}>
-                                                    <label htmlFor='RequisitionID'>Item Name : </label>
-                                                    <input key={index + 1} type='text' className='form-control' name='Item' value={item.itemName} onChange={(e) => this.handleChange(e, index)} required placeholder='Item Name'
-                                                    />
-                                                </div>
-                                                <div className='form-group col-md-5' style={{ marginTop: '15px' }}>
-                                                    <label htmlFor='SiteId'>Unit Price : </label>
-                                                    <input key={index + 1} type='number' className='form-control' name='Item' placeholder='LKR 500' value={item.price} onChange={(e) => this.handleChange2(e, index)} required/>
-                                                </div>
-                                                <div className='form-group col-md-1' style={{ marginTop: '15px' }}>
-                                                    <br/>
-                                                    <button className="btn closebtn" onClick={() => this.handleRemove(index)}><i class="fas fa-times"></i></button>
-                                                </div>                                                
-                                            </div>
-                                        )
-                                    })}
-
+                                   
                                     <div className="row submitbtn">
                                         <div class="d-grid gap-2 col-4 mx-auto  ">
                                             
