@@ -18,31 +18,7 @@ export default class sidebars extends Component {
                 >
                     <SideNav.Toggle className="toggleNav" />
                     <SideNav.Nav defaultSelected="home">
-                        <NavItem className="item" eventKey="Projects">                            
-                            <NavIcon>
-                                <Link className="link" to="/projects">
-                                    <img src="https://i.ibb.co/Lt9d732/icon-1.png" width="30px" height="30px"/>
-                                </Link>
-                            </NavIcon>
-                            <NavText>
-                                <Link className="link" to="/projects">
-                                    Projects
-                                </Link>
-                            </NavText>
-                        </NavItem>
-                        <NavItem className="item" eventKey="Budgets">
-                            <NavIcon>
-                                <Link className="link" to='/budget_Home'>
-                                    <img src="https://i.ibb.co/yPZY7wT/icon-6.png" alt="icon-6" width="30px" height="30px"/>
-                                </Link>
-                            </NavIcon>
-                            <NavText>
-                                <Link className="link" to='/budget_Home'>
-                                    Budget
-                                </Link>
-                            </NavText>
-                        </NavItem>                          
-                        <NavItem className="item" eventKey="Suppliers">
+                    <NavItem className="item" eventKey="Suppliers">
                             <NavIcon>
                                 <Link className="link" to="/suppliers_Home">
                                     <img src="https://i.ibb.co/DRdV9gC/icon-2.png" alt="icon-2" width="30px" height="30px"/>
@@ -53,7 +29,20 @@ export default class sidebars extends Component {
                                     Suppliers
                                 </Link>
                             </NavText>
-                        </NavItem>                      
+                        </NavItem>  
+                        <NavItem className="item" eventKey="Discounts">
+                            <NavIcon>
+                                <Link className="link" to='/budget_Home'>
+                                    <img src="https://i.ibb.co/yPZY7wT/icon-6.png" alt="icon-6" width="30px" height="30px"/>
+                                </Link>
+                            </NavIcon>
+                            <NavText>
+                                <Link className="link" to='/budget_Home'>
+                                Discounts
+                                </Link>
+                            </NavText>
+                        </NavItem>                          
+                                          
                         <NavItem className="item" eventKey="Requsitons">
                             <NavIcon>
                                 <Link className="link" to='/Requsition_Manage'>
