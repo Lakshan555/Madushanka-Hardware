@@ -26,7 +26,7 @@ export default class SupplierHome extends Component {
   }
 
   retrieveSupplier() {
-    axios.get(`http://localhost:4000/supplier`).then(res => {
+    axios.get(`http://localhost:8000/supplier`).then(res => {
       if (res.data.success) {
         this.setState({
           supplier: res.data.existingSuppliers
@@ -49,7 +49,7 @@ export default class SupplierHome extends Component {
     })
       .then((willDelete) => {
         if (willDelete) {
-          axios.delete(`http://localhost:4000/supplier/delete/${id}`).then((res) => {
+          axios.delete(`http://localhost:8000/supplier/delete/${id}`).then((res) => {
 
             swl('supplier Deleted successfully', {
               icon: "success",
@@ -73,7 +73,7 @@ export default class SupplierHome extends Component {
 
   handleSearchArea = (e) => {
     const searchKey = e.currentTarget.value.toLowerCase();
-    axios.get("http://localhost:4000/supplier").then(res => {
+    axios.get("http://localhost:8000/supplier").then(res => {
       if (res.data.success) {
         this.filterData(res.data.existingSuppliers, searchKey)
       }
