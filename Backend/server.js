@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 app.use(SuppliersRoute);
 
 
-const PORT = 8000;
-const DB_URL = 'mongodb+srv://madu:123@hardware.icbmg.mongodb.net/Hardware?retryWrites=true&w=majority'
+const PORT = process.env.PORT ||8000;
+const DB_URL = process.env.MONGODB_URI ||'mongodb+srv://madu:123@hardware.icbmg.mongodb.net/Hardware?retryWrites=true&w=majority'
 
 
 //crate options
@@ -39,6 +39,10 @@ mongoose.connect(DB_URL)
 })
 .catch((err)=> console.log('DB Connection Error!',err));   
 
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('frontend/build'));
+}
 
 app.listen(PORT, ()=>{
          console.log(`App is running on ${PORT}`);
