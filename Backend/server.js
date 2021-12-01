@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); //use for convert json format to javaScript
 const cors = require('cors');
+const path = require('path');
+require("dotenv").config();
 
 
 const app = express();
@@ -19,8 +21,8 @@ app.use(bodyParser.json());
 app.use(SuppliersRoute);
 
 
-const PORT = process.env.PORT ||8000;
-const DB_URL = process.env.MONGODB_URI ||'mongodb+srv://madu:123@hardware.icbmg.mongodb.net/Hardware?retryWrites=true&w=majority'
+const PORT = process.env.PORT ;
+const DB_URL = process.env.DB_URL ;
 
 
 //crate options
@@ -40,8 +42,16 @@ mongoose.connect(DB_URL)
 .catch((err)=> console.log('DB Connection Error!',err));   
 
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('frontend/build'));
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname,'../frontend/build')));
+
+    app.get('*',(req,res) => {
+        res.sendFile(path.join(__dirname,'frontend', 'build' ,'index.html'));
+    })
+}else{
+    app.get('/',(req,res) =>{
+        res.send("API is Running")
+    })
 }
 
 app.listen(PORT, ()=>{
